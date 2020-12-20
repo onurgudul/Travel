@@ -10,11 +10,11 @@ using TravelGuide.Entities.Concreate;
 
 namespace TravelGuide.Data.Concreate.EntityFramework
 {
-    public class EfNoteDal:EfEntityRepositoryBase<Note,DatabaseContext>,INoteDal
+    public class EfNoteDal : EfEntityRepositoryBase<Note, DatabaseContext>, INoteDal
     {
         public List<Note> NoteWithAll()
         {
-            using (var context=new DatabaseContext())
+            using (var context = new DatabaseContext())
             {
                 return context.Set<Note>().Include("Category").Include("Owner").ToList();
             }
