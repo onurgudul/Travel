@@ -41,7 +41,7 @@ namespace TravelGuide.Business.Concreate
 
         public IDataResult<List<Note>> NoteWithAll()
         {
-            return new SuccessDataResult<List<Note>>(_noteDal.NoteWithAll().ToList());
+            return new SuccessDataResult<List<Note>>(_noteDal.NoteWithAll(n => n.IsDraft == false).ToList());
         }
 
         public IResult Update(Note entity)
