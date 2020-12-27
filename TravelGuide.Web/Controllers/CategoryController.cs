@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using TravelGuide.Business.Abstract;
 using TravelGuide.Entities.Concreate;
+using TravelGuide.Web.Models;
 
 namespace TravelGuide.Web.Controllers
 {
@@ -47,6 +48,7 @@ namespace TravelGuide.Web.Controllers
         public ActionResult Create(Category category)
         {
             _categoryService.Add(category);
+            
             return View(category);
         }
         public ActionResult Edit(int? id)
@@ -74,8 +76,10 @@ namespace TravelGuide.Web.Controllers
             cat.Data.Description = category.Description;
             cat.Data.Title = category.Title;
             _categoryService.Update(cat.Data);
+        
+        
             return View(category);
         }
-        
+
     }
 }

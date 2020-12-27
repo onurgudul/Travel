@@ -5,7 +5,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TravelGuide.Business.Abstract;
+using TravelGuide.Entities.Concreate;
 using TravelGuide.Entities.Dto;
+using TravelGuide.Web.Models;
 
 namespace TravelGuide.Web.Controllers
 {
@@ -35,6 +37,7 @@ namespace TravelGuide.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            SessionManager.Set<User>("login", userToLogin.Data);
             return RedirectToAction("Index", "Home");
         }
         [HttpGet]
@@ -62,7 +65,11 @@ namespace TravelGuide.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             return RedirectToAction("Index", "Home");
-
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login", "Authantication");
         }
     }
 }

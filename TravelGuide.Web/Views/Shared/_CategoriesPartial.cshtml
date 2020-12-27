@@ -1,0 +1,14 @@
+﻿@using TravelGuide.Entities.Concreate
+@model List<TravelGuide.Entities.Concreate.Category>
+
+@{
+    List<Category> list = ViewData["CategoryList"] as List<Category>;
+}
+<p class="lead">Kategoriler</p>
+<div class="list-group">
+    <a href="@Url.Action("Index","Home")" class="list-group-item"><span>Tümü</span></a>
+    @foreach (var cat in Model)
+    {
+        <a href="/Home/ByCategory/@cat.Id" title="@cat.Description" class="list-group-item">@cat.Title</a>
+    }
+</div>

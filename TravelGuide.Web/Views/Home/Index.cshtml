@@ -10,7 +10,7 @@
     <div class="row">
         <!-- Kategoriler -->
         @*<div class="col-md-3">
-            @Html.Partial("_PartialCategories")
+            @Html.Partial("_CategoriesPartial")
         </div>*@
 
         <div class="col-md-9">
@@ -59,7 +59,7 @@
                                 </h4>
                                 <h6 class="text-right">
                                     @note.Owner.Username <span class="glyphicon glyphicon-user"></span><br />
-                                   
+
                                 </h6>
 
                                 @if (string.IsNullOrEmpty(note.Text) == false && note.Text.Length > 70)
@@ -100,12 +100,12 @@
 </div>
 
 @*@section footer{
-    @Html.Partial("_PartialFooter")
-}
+        @Html.Partial("_PartialFooter")
+    }
 
-@Bootstrap.ModalPopup(id: "modal_comment", title: "Yorumlar")
-@Bootstrap.ModalPopup(id: "modal_notedetail", title: "Not Detayı")
+    @Bootstrap.ModalPopup(id: "modal_comment", title: "Yorumlar")
+    @Bootstrap.ModalPopup(id: "modal_notedetail", title: "Not Detayı")
 
-<script src="~/Scripts/comment.js"></script>
-<script src="~/Scripts/like.js"></script>
-<script src="~/Scripts/NoteDetailPopup.js"></script>*@
+    <script src="~/Scripts/comment.js"></script>
+    <script src="~/Scripts/like.js"></script>
+    <script src="~/Scripts/NoteDetailPopup.js"></script>*@
